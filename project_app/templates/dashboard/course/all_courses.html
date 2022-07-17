@@ -1,0 +1,42 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block content %}
+<div class="p-5 bg-secondary text-light">
+    <h1 class="display-4">All Courses</h1>
+    <hr class="my-2">
+    <div class="container">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Course Categoies</th>
+                    <th>Course instructor</th>
+                    <th>Course Creator</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                    <tr>
+                        <td scope="row">{{course.id}}</td>
+                        <td>{{course.name}}</td>
+                        <td> 
+                            {% for category in course.categories.all %}
+                                {{category.name}} 
+                            {% endfor %}
+                        </td>
+                        <td>{{course.instructor}}</td>
+                        <td>{{course.course_creator.first_name}}</td>
+                        <td class="text-dark">
+                            <a class="text-light" href="/dashboard/course/edit/{{course.id}}">Edit</a> | <a class="text-light" href="/dashboard/course/delete/{{course.id}}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+{% endblock content %}

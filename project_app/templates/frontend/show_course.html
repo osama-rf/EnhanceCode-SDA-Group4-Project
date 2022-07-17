@@ -1,0 +1,44 @@
+{% extends 'frontend/layout.html' %}
+
+{% block content %}
+    <div class="container d-flex justify-content-around">
+
+        <div class="container d-flex flex-column bg-white rounded left p-2">
+            <div class="container bg-light my-4 rounded">
+                <div class="d-flex justify-content-start align-items-center shadow p-4 mb-4 rounded">
+                    <img style="width: 70px; height: 70px;" src="{{course.image}}" alt="{{course.name}}">
+                    <h1>{{course.name}}</h1>
+                </div>
+                <p class="mb-3">{{course.description}}</p>
+                {% load humanize %}
+                <p class="card-text"><small class="text-muted">{{course.updated_at|naturaltime}}</small></p>
+
+            </div>
+            <hr>
+
+            <div class="container">
+                <p>Course Goals</p>
+                <p>{{course.goals}}</p>
+            </div>
+        </div>
+
+        <div class="container d-flex flex-column flex-grow-1 bg-white rounded right">
+            {% for section in course.sections.all %}
+            <p>
+                <button style="border-color: #8048f1;" class="btn btn-white text-dark border-2 border w-100" type="button" data-bs-toggle="collapse" data-bs-target="#contentId{{section.id}}" aria-expanded="false" aria-controls="contentId{{section.id}}">
+                    {{section.name}}
+                </button>
+            </p>
+            <div class="collapse" id="contentId{{section.id}}">
+                {{section.description}}
+                {% for subject in section.subjects.all %}
+                    <div id="subjects_container" style="height:50px;border-color: #8048f1;" class="container border rounded my-2 d-flex align-items-center">
+                        <a href="/show/subject/{{subject.id}}">{{subject.title}}</a>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock content%}

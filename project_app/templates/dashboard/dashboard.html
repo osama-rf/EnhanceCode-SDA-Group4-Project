@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    {% block header %}
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Enhance Code</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="category" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+                            <div class="dropdown-menu" aria-labelledby="category">
+                                <a class="dropdown-item" href="/dashboard/category">All Categories</a>
+                                <a class="dropdown-item" href="/dashboard/category/new">Create Category</a>
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="course" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Course</a>
+                            <div class="dropdown-menu" aria-labelledby="course">
+                                <a class="dropdown-item" href="/dashboard/course">All Courses</a>
+                                <a class="dropdown-item" href="/dashboard/course/new">Create Course</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="section" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Section</a>
+                            <div class="dropdown-menu" aria-labelledby="section">
+                                <a class="dropdown-item" href="/dashboard/section">All Sections</a>
+                                <a class="dropdown-item" href="/dashboard/section/new">Create Section</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="subject" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subject</a>
+                            <div class="dropdown-menu" aria-labelledby="subject">
+                                <a class="dropdown-item" href="/dashboard/subject">All Subject</a>
+                                <a class="dropdown-item" href="/dashboard/subject/new">Create Subject</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="/logout" class="btn btn-outline-success my-2 my-sm-0" >Log out</a>
+                </div>
+        </div>
+        </nav>
+    {% endblock header %}
+
+    {% block content %}
+    {% endblock content %}
+    
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

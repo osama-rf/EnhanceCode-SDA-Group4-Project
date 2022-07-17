@@ -1,0 +1,26 @@
+{% extends 'frontend/layout.html' %}
+
+{% block content %}
+    <div style="margin:80px;" class="container w-100 mx-auto">
+        <div class="row">
+            {% for course in courses %}
+            <div  class="col-4 position-relative mb-5">
+                <img style="height: 80px; width: 80px; z-index: 99;left:75%; top:-13%" class="card-img-top bg-light rounded p-2 position-absolute " src="{{course.image}}" alt="{{course.name}}">
+                <a href="/show/{{course.id}}" id="course_container" style="height:230px" class="card shadow-lg border border-secodary border-2 rounded">
+                    <div class="card-body">
+                        <p class="card-text"><small class="text-muted">instructor: {{course.instructor}}</small></p>
+                        <h4 class="card-title">
+                            {{course.name}}
+                        </h4>
+                        <p class="card-text overflow-scroll h-25 fs-6">{{course.description}}</p>
+                        {% load humanize %}
+                        <p class="card-text"><small class="text-muted">{{course.updated_at|naturaltime}}</small></p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+
+{% endblock content %}

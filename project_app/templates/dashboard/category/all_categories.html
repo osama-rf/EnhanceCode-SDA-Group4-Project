@@ -1,0 +1,34 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block content %}
+<div class="p-5 bg-secondary text-light">
+    <h1 class="display-4">All Category</h1>
+    <hr class="my-2">
+    <div class="container">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category Name</th>
+                    <th>Category Creator</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="text-white">
+                {% for category in categories %}
+                <tr>
+                    <td scope="row">{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                    <td>{{category.category_creator.first_name}}</td>
+                    <td class="text-dark">
+                        <a class="text-light" href="/dashboard/category/edit/{{category.id}}">Edit</a> | <a class="text-light" href="/dashboard/category/delete/{{category.id}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+{% endblock content %}

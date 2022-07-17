@@ -1,0 +1,41 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block content %}
+<div class="p-5 bg-secondary text-light">
+    <h1 class="display-4">Create Subject</h1>
+    <hr class="my-2">
+    <div class="container">
+        <form action="/dashboard/subject/create" method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="" class="form-label">Sections:</label>
+                <select class="form-control" name="section" required>
+                    <option value="">Select a section</option>
+                    {% for section in sections %}
+                        <option value="{{section.id}}">{{section.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="title" class="form-label">Subject Title:</label>
+                <input type="text" class="form-control border border-2 border-dark" name="title">
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" name="description" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="video_url" class="form-label">Upload Video</label>
+                <input type="text" class="form-control border border-2 border-dark" name="video_url">
+            </div>
+
+            <button type="submit" class="btn btn-success border border-2 border-dark text-white">Create</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

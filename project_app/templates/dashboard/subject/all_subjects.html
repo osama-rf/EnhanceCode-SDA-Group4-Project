@@ -1,0 +1,38 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block content %}
+<div class="p-5 bg-secondary text-light">
+    <h1 class="display-4">All Subjects</h1>
+    <hr class="my-2">
+    <div class="container">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Section Name</th>
+                    <th>Title</th>
+                    <th>Subject Creator</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subject in subjects %}
+                    <tr>
+                        <td scope="row">{{subject.id}}</td>
+                        <td>{{subject.section.course.name}}</td>
+                        <td>{{subject.section.name}}</td>
+                        <td>{{subject.title}}</td>
+                        <td>{{subject.subject_creator.first_name}}</td>
+                        <td class="text-dark">
+                            <a class="text-light" href="/dashboard/subject/edit/{{subject.id}}">Edit</a> | <a class="text-light" href="/dashboard/subject/delete/{{subject.id}}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'frontend/layout.html' %}
+
+{% block content %}
+    <div class="container">
+        {% if subject.video_url != "None" %}
+            <video class="w-100 mb-5" src="{{subject.video_url}}" controls></video>
+        {% endif %}
+
+        <h3>{{subject.title}}</h3>
+        <p>{{subject.description}}</p>
+    </div>
+{% endblock content %}

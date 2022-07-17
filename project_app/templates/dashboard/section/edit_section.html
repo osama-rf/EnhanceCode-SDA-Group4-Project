@@ -1,0 +1,24 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block content %}
+<div class="p-5 bg-secondary text-light">
+    <h1 class="display-4">Edit Section</h1>
+    <hr class="my-2">
+    <div class="container">
+        <form action="/dashboard/section/update/{{section.id}}" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Section Name:</label>
+                <input type="text" class="form-control border border-2 border-dark" name="name" value="{{section.name}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" name="description" rows="3">{{section.description}}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success border border-2 border-dark text-white">Update</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

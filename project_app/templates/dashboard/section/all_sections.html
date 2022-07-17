@@ -1,0 +1,42 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block content %}
+<div class="p-5 bg-secondary text-light">
+    <h1 class="display-4">All Sections</h1>
+    <hr class="my-2">
+    <div class="container">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Section Name</th>
+                    <th>Section Category</th>
+                    <th>Course Name</th>
+                    <th>Section Creator</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for section in sections %}
+                    <tr>
+                        <td scope="row">{{section.id}}</td>
+                        <td>{{section.name}}</td>
+                        <td>
+                            {% for category in section.course.categories.all %}
+                                {{category.name}} 
+                            {% endfor %}
+                        </td>
+                        <td>{{section.course.name}}</td>
+                        <td>{{section.section_creator.first_name}}</td>
+                        <td class="text-dark">
+                            <a class="text-light" href="/dashboard/section/edit/{{section.id}}">Edit</a> | <a class="text-light" href="/dashboard/section/delete/{{section.id}}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+{% endblock content %}
